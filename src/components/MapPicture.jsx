@@ -1,8 +1,18 @@
-import React from "react";
-import './search.scss';
+import React, { useState } from "react";
+import "./search.scss";
 
 const MapPicture = () => {
-  return <div>사진 가져오는곳</div>;
+  const [state, setState] = useState("");
+
+  return (
+    <>
+      <input
+        type="text"
+        value={state}
+        onChange={(e) => setState(e.target.value)}
+      />
+    </>
+  );
 };
 
 export default MapPicture;
