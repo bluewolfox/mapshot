@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import mapSlice from "./map";
+import { mapSlice } from "./map";
 import userSlice from "./user";
 
 export default combineReducers({

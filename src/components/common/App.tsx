@@ -1,13 +1,8 @@
 import React from "react";
 import AppRouter from "./AppRouter";
+import '../../assets/scss/fonts.scss';
 
-declare global {
-  interface Window {
-    kakao: any;
-  }
-}
-
-const App: React.FC = () => {
+const App = () => {
   return <AppRouter />;
 };
 

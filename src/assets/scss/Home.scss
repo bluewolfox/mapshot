@@ -24,6 +24,10 @@ input {
   margin: 1px 0;
   font-family: nanumsquare;
 
+  &:focus{
+    outline: none;
+  }
+
   &.married {
     width: auto;
   }

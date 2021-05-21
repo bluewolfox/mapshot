@@ -12,7 +12,7 @@ const Home = () => {
   const history = useHistory();
 
   const onSubmitUserData = useCallback(
-    (e:React.FormEvent<HTMLFormElement>) => {
+    (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const payload = {
         name: name,
@@ -22,25 +22,11 @@ const Home = () => {
       };
       dispatch(userSlice.actions.setUserData(payload));
       history.push("/map");
-    },
-    [name, age, married]
-  );
-
-  const onChangeName = useCallback((e:React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  }, []);
-
-  const onChangeAge = useCallback((e:React.ChangeEvent<HTMLInputElement>) => {
-    setAge(e.target.value);
-  }, []);
-
-  const onChangeMarried = useCallback((e:React.ChangeEvent<HTMLInputElement>) => {
-    setMarried(!married);
-  }, []);
+    }, [name, age, married, dispatch, history]);
 
   return (
     <>
-      <nav className="black-nav">이용준 개새끼</nav>
+      <nav className="black-nav">맵샷</nav>
       <div className="center-div">
         <h1>당신의 정보를 적어주세요.</h1>
         <form onSubmit={onSubmitUserData} className="home-form">
@@ -48,13 +34,13 @@ const Home = () => {
             type="text"
             placeholder="이름을 적어주세요"
             value={name}
-            onChange={onChangeName}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             type="number"
             placeholder="나이를 적어주세요"
             value={age}
-            onChange={onChangeAge}
+            onChange={(e) => setAge(e.target.value)}
           />
           <div
             style={{
@@ -64,7 +50,7 @@ const Home = () => {
             <input
               type="checkbox"
               checked={married}
-              onChange={onChangeMarried}
+              onChange={(e) => setMarried(e.target.checked)}
               id="checkMarried"
               className="married"
             />
